@@ -3,104 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma - 男人进化论</title>
+    <title>Sigma - 雄性意识觉醒</title>
     <style>
-        /* 极简风样式库 */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: #0b0f19; color: #ffffff; padding: 20px 15px; }
+        /* 极致硬核黑金排版 */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: #05070b; color: #e2e8f0; padding: 25px 16px; letter-spacing: 0.5px; }
         
-        /* 顶部标题区 */
-        header { text-align: center; margin-bottom: 30px; padding: 20px 0; }
-        header h1 { font-size: 28px; letter-spacing: 2px; color: #00ffcc; text-transform: uppercase; font-weight: 900; }
-        header p { color: #8892b0; font-size: 13px; margin-top: 5px; }
+        /* 顶级奢侈品感顶部 */
+        header { text-align: center; margin-bottom: 40px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        header h1 { font-size: 32px; letter-spacing: 6px; color: #ffffff; font-weight: 900; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        header p { color: #5f6c85; font-size: 11px; margin-top: 8px; letter-spacing: 3px; text-transform: uppercase; }
 
-        /* 小红书双列瀑布流 */
-        .waterfall { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        /* 杂志级双列瀑布流 */
+        .waterfall { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
         
-        /* 卡片样式 */
-        .card { background-color: #1a2333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid #26354a; }
-        .card-img { width: 100%; height: 160px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; position: relative; }
+        /* 西装质感暗黑卡片 */
+        .card { background: #11141c; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid #1e2330; transition: all 0.3s ease; }
+        .card:active { transform: scale(0.98); border-color: #d4af37; }
         
-        /* 5个板块的代表色/渐变 */
-        .img-fitness { background: linear-gradient(135deg, #ff416c, #ff4b2b); }
-        .img-style { background: linear-gradient(135deg, #1fa2ff, #12d8fa); }
-        .img-grooming { background: linear-gradient(135deg, #f9d423, #ff4e50); }
-        .img-knowledge { background: linear-gradient(135deg, #a8ff78, #78ffd6); }
-        .img-diet { background: linear-gradient(135deg, #b92b27, #1565c0); }
+        /* 统一的高级质感图标区 */
+        .card-img { width: 100%; height: 130px; background: #161b26; display: flex; align-items: center; justify-content: center; font-size: 36px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        
+        /* 呼吸微光的金属边框效果 */
+        .card-img::after { content: ''; position: absolute; bottom: 0; left: 10%; width: 80%; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent); }
 
         /* 卡片文字区 */
-        .card-info { padding: 10px; }
-        .card-title { font-size: 14px; font-weight: bold; line-height: 1.4; margin-bottom: 6px; color: #f0f3f8; }
+        .card-info { padding: 12px 10px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-size: 13px; font-weight: 600; line-height: 1.5; margin-bottom: 12px; color: #cbd5e1; }
         
-        /* 卡片底部互动区（打卡/点赞） */
-        .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #8892b0; margin-top: 4px; }
-        .tag { background: rgba(0, 255, 204, 0.1); color: #00ffcc; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
-        .btn-checkin { background: #00ffcc; color: #0b0f19; padding: 3px 8px; border-radius: 20px; font-weight: bold; cursor: pointer; }
+        /* 底部硬朗标签 */
+        .card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        .tag { color: #d4af37; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.2); padding: 1px 6px; border-radius: 2px; background: rgba(212,175,55,0.03); }
+        .btn-checkin { font-size: 10px; color: #5f6c85; font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>SIGMA</h1>
-        <p>— 专为男性打造的全方位自我提升指南 —</p>
+        <p>— Male Self-Evolution Protocol —</p>
     </header>
 
     <div class="waterfall">
-<a href="./fitness.html" class="card">
-            <div class="card-img img-fitness">🏋️‍♂️</div>
+
+        <a href="./fitness.html" class="card">
+            <div class="card-img">🏋️‍♂️</div>
             <div class="card-info">
-                <div class="card-title">【健身】从零基础小白到赛前脱水：核心动作与完美进化周期。</div>
+                <div class="card-title">【肉体淬炼】从零基础小白到极致体脂：雄性核心力量与完美周期。</div>
                 <div class="card-meta">
-                    <span class="tag">新手入门</span>
-                    <span class="btn-checkin" style="pointer-events: none;">去打卡</span>
+                    <span class="tag">01 / IRON</span>
+                    <span class="btn-checkin">ENTER →</span>
                 </div>
             </div>
         </a>
-       </a>
 
-        <div class="card">
-            <div class="card-img img-style">👔</div>
+        <a href="./style.html" class="card">
+            <div class="card-img">👔</div>
             <div class="card-info">
-                <div class="card-title">【穿搭】避开男生穿搭误区，用最简单的单品穿出高级感。</div>
+                <div class="card-title">【行装美学】西装到工装的硬朗美学，避开廉价感，用穿搭武装社会身份。</div>
                 <div class="card-meta">
-                    <span class="tag">形象管理</span>
-                    <span class="btn-checkin">去打卡</span>
+                    <span class="tag">02 / STYLE</span>
+                    <span class="btn-checkin">ENTER →</span>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="card">
-            <div class="card-img img-grooming">🧔</div>
+        <a href="./grooming.html" class="card">
+            <div class="card-img">🧔</div>
             <div class="card-info">
-                <div class="card-title">【面容】男生极简护肤三步走，干净清爽才是最好的医美。</div>
+                <div class="card-title">【面容重塑】拒绝油腻与繁琐。专为男士设计的极简理容与冷感刀锋打理。</div>
                 <div class="card-meta">
-                    <span class="tag">型男面子</span>
-                    <span class="btn-checkin">去打卡</span>
+                    <span class="tag">03 / FACE</span>
+                    <span class="btn-checkin">ENTER →</span>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="card">
-            <div class="card-img img-knowledge">📚</div>
+        <a href="./knowledge.html" class="card">
+            <div class="card-img">📚</div>
             <div class="card-info">
-                <div class="card-title">【知识】戒掉低级多巴胺，构建高端男性的思维深度与认知。</div>
+                <div class="card-title">【心智觉醒】戒断低级多巴胺，构建顶级猎手的思维深度、专注力与搞钱认知。</div>
                 <div class="card-meta">
-                    <span class="tag">内在重塑</span>
-                    <span class="btn-checkin">去打卡</span>
+                    <span class="tag">04 / MIND</span>
+                    <span class="btn-checkin">ENTER →</span>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="card">
-            <div class="card-img img-diet">🥩</div>
+        <a href="./diet.html" class="card">
+            <div class="card-img">🥩</div>
             <div class="card-info">
-                <div class="card-title">【饮食】干净饮食指南：怎么吃出低体脂与饱满的肌肉线条。</div>
+                <div class="card-title">【原始饮食】高蛋白干净饮食指南，吃出低体脂与充沛精力，维持全天高酮状态。</div>
                 <div class="card-meta">
-                    <span class="tag">营养调配</span>
-                    <span class="btn-checkin">去打卡</span>
+                    <span class="tag">05 / FUEL</span>
+                    <span class="btn-checkin">ENTER →</span>
                 </div>
             </div>
-        </div>
+        </a>
 
     </div>
 
