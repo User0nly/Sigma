@@ -81,9 +81,17 @@
         </a>
     </div>
 
-    <div class="checkin-action" onclick="alert('🎉 今日健身打卡成功！你离王者又近了一步！')">
+    <div id="checkinBtn" class="checkin-action" onclick="doCheckIn()">
         🔥 记录我今天的努力（点击打卡）
     </div>
 
-</body>
-</html>
+    <script>
+        function doCheckIn() {
+            var btn = document.getElementById('checkinBtn');
+            btn.innerHTML = "✅ 今日已打卡！Sigma 能量 +10";
+            btn.style.background = "#26354a";
+            btn.style.color = "#00ffcc";
+            btn.style.border = "1px solid #00ffcc";
+            btn.style.pointerEvents = "none";
+        }
+    </script>
