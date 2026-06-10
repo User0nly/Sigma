@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigma - 健身进化论</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+        body { background-color: #0b0f19; color: #ffffff; padding: 20px 15px; }
+        
+        /* 顶部返回与标题 */
+        .nav-header { display: flex; align-items: center; margin-bottom: 25px; }
+        .back-btn { color: #00ffcc; text-decoration: none; font-size: 16px; margin-right: 15px; }
+        .nav-header h1 { font-size: 20px; font-weight: bold; }
+
+        /* 阶段路线图 */
+        .timeline { margin-bottom: 30px; position: relative; padding-left: 20px; border-left: 2px solid #26354a; }
+        .stage-card { background: #1a2333; border-radius: 10px; padding: 15px; margin-bottom: 20px; border: 1px solid #26354a; }
+        .stage-title { font-size: 16px; font-weight: bold; color: #00ffcc; margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .stage-desc { font-size: 13px; color: #8892b0; line-height: 1.5; margin-bottom: 10px; }
+        
+        /* 外部专业工具推荐卡片 */
+        .recommend-box { background: linear-gradient(135deg, #1f293d, #141b29); border-radius: 12px; padding: 15px; border: 1px solid #00ffcc; }
+        .recommend-title { font-size: 15px; font-weight: bold; color: #ffffff; margin-bottom: 10px; }
+        .app-link { display: flex; align-items: center; background: #26354a; padding: 10px; border-radius: 8px; text-decoration: none; color: #fff; margin-bottom: 8px; font-size: 13px; }
+        .app-icon { font-size: 20px; margin-right: 10px; }
+        .app-info { flex-grow: 1; }
+        .app-name { font-weight: bold; color: #f0f3f8; }
+        .app-intro { font-size: 11px; color: #8892b0; }
+
+        /* 打卡按钮 */
+        .checkin-action { background: #00ffcc; color: #0b0f19; text-align: center; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 25px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">
+        <a href="index.html" class="back-btn">⬅ 返回</a>
+        <h1>🏋️‍♂️ 健身进化路线</h1>
+    </div>
+
+    <div class="timeline">
+        
+        <div class="stage-card">
+            <div class="stage-title"><span>STAGE 1: 破冰新手</span><span style="font-size:12px; color:#ff416c;">⏳ 进行中</span></div>
+            <div class="stage-desc"><strong>核心任务：</strong>建立习惯，掌握复合动作（深蹲、卧推）。别盲目冲重量。</div>
+            <div class="stage-desc"><strong>宝藏避坑：</strong>不要一上来就买一堆补剂，好好吃饭比什么都强。</div>
+        </div>
+
+        <div class="stage-card" style="opacity: 0.6;">
+            <div class="stage-title"><span>STAGE 2: 精英进阶</span><span style="font-size:12px; color:#8892b0;">🔒 未解锁</span></div>
+            <div class="stage-desc"><strong>核心任务：</strong>引入渐进超负荷，开始三分化训练（推、拉、腿）。突破平台期。</div>
+        </div>
+
+        <div class="stage-card" style="opacity: 0.6;">
+            <div class="stage-title"><span>STAGE 3: 赛前王者</span><span style="font-size:12px; color:#8892b0;">🔒 未解锁</span></div>
+            <div class="stage-desc"><strong>核心任务：</strong>极致减脂与精细脱水，极限拉低体脂率，展现完美分离度。</div>
+        </div>
+
+    </div>
+
+    <div class="recommend-box">
+        <div class="recommend-title">🛠️ 嫌不够细？Sigma 推荐你用这些专业工具：</div>
+        
+        <a href="https://www.keep.com" target="_blank" class="app-link">
+            <span class="app-icon">📱</span>
+            <div class="app-info">
+                <div class="app-name">Keep (或对应动作APP)</div>
+                <div class="app-intro">适合新手阶段跟着视频找动作发力感</div>
+            </div>
+            <span>➡️</span>
+        </a>
+
+        <a href="https://apps.apple.com" target="_blank" class="app-link">
+            <span class="app-icon">📊</span>
+            <div class="app-info">
+                <div class="app-name">训记 / 笔记软件</div>
+                <div class="app-intro">适合进阶后记录每组重量和渐进超负荷</div>
+            </div>
+            <span>➡️</span>
+        </a>
+    </div>
+
+    <div class="checkin-action" onclick="alert('🎉 今日健身打卡成功！你离王者又近了一步！')">
+        🔥 记录我今天的努力（点击打卡）
+    </div>
+
+</body>
+</html>
