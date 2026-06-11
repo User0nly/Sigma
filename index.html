@@ -5,103 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sigma - 雄性意识觉醒</title>
     <style>
-        /* 极致硬核黑金排版 */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif; }
-        body { background-color: #05070b; color: #e2e8f0; padding: 25px 16px; letter-spacing: 0.5px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+        body { background-color: #05070b; color: #e2e8f0; padding: 20px 16px; letter-spacing: 0.5px; }
         
-        /* 顶级奢侈品感顶部 */
-        header { text-align: center; margin-bottom: 40px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        header h1 { font-size: 32px; letter-spacing: 6px; color: #ffffff; font-weight: 900; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
-        header p { color: #5f6c85; font-size: 11px; margin-top: 8px; letter-spacing: 3px; text-transform: uppercase; }
+        header { text-align: center; margin-bottom: 30px; padding-top: 10px; }
+        header h1 { font-size: 26px; letter-spacing: 4px; color: #ffffff; font-weight: 900; }
+        header p { color: #5f6c85; font-size: 11px; margin-top: 6px; letter-spacing: 2px; }
 
-        /* 杂志级双列瀑布流 */
-        .waterfall { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-        
-        /* 西装质感暗黑卡片 */
-        .card { background: #11141c; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid #1e2330; transition: all 0.3s ease; }
-        .card:active { transform: scale(0.98); border-color: #d4af37; }
-        
-        /* 统一的高级质感图标区 */
-        .card-img { width: 100%; height: 130px; background: #161b26; display: flex; align-items: center; justify-content: center; font-size: 36px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        
-        /* 呼吸微光的金属边框效果 */
-        .card-img::after { content: ''; position: absolute; bottom: 0; left: 10%; width: 80%; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent); }
+        .dashboard { background: #11141c; border: 1px solid #1e2330; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
+        .dashboard-title { font-size: 11px; color: #d4af37; font-weight: bold; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+        .progress-bar-bg { width: 100%; height: 6px; background: #1e2330; border-radius: 3px; overflow: hidden; }
+        .progress-bar { width: 0%; height: 100%; background: #d4af37; transition: width 0.3s ease; }
+        .stat-line { display: flex; justify-content: space-between; font-size: 11px; color: #5f6c85; margin-top: 8px; }
 
-        /* 卡片文字区 */
-        .card-info { padding: 12px 10px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-title { font-size: 13px; font-weight: 600; line-height: 1.5; margin-bottom: 12px; color: #cbd5e1; }
+        .task-list { margin-bottom: 30px; }
+        .task-item { background: #11141c; border: 1px solid #1e2330; border-radius: 6px; padding: 15px; margin-bottom: 12px; display: flex; align-items: flex-start; justify-content: space-between; text-decoration: none; color: inherit; }
+        .task-content { flex-grow: 1; padding-right: 15px; }
+        .task-tag { font-size: 9px; color: #d4af37; font-weight: bold; border: 1px solid rgba(212,175,55,0.2); padding: 1px 4px; border-radius: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 6px; }
+        .task-title { font-size: 14px; font-weight: bold; color: #cbd5e1; line-height: 1.4; }
+        .task-desc { font-size: 11px; color: #5f6c85; margin-top: 5px; line-height: 1.4; }
         
-        /* 底部硬朗标签 */
-        .card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-        .tag { color: #d4af37; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.2); padding: 1px 6px; border-radius: 2px; background: rgba(212,175,55,0.03); }
-        .btn-checkin { font-size: 10px; color: #5f6c85; font-weight: bold; text-transform: uppercase; }
+        .checkbox-btn { width: 22px; height: 22px; border: 2px solid #1e2330; border-radius: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: transparent; font-size: 14px; font-weight: bold; margin-top: 2px; background: transparent; transition: all 0.2s; }
+        .task-item.done .checkbox-btn { background: #d4af37; border-color: #d4af37; color: #05070b; }
+        .task-item.done .task-title { text-decoration: line-through; color: #5f6c85; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>SIGMA</h1>
-        <p>— Male Self-Evolution Protocol —</p>
+        <h1>SIGMA PROTOCOL</h1>
+        <p>— Richmond Phase 0: 破冰启动 —</p>
     </header>
 
-    <div class="waterfall">
+    <div class="dashboard">
+        <div class="dashboard-title">⚡ 今日基本盘指数 / Daily Base</div>
+        <div class="progress-bar-bg">
+            <div id="mainProgress" class="progress-bar"></div>
+        </div>
+        <div class="stat-line">
+            <span id="progressText">0% Completed</span>
+            <span>最低成本 · 极易达成</span>
+        </div>
+    </div>
 
-        <a href="./fitness.html" class="card">
-            <div class="card-img">🏋️‍♂️</div>
-            <div class="card-info">
-                <div class="card-title">【肉体淬炼】从零基础小白到极致体脂：雄性核心力量与完美周期。</div>
-                <div class="card-meta">
-                    <span class="tag">01 / IRON</span>
-                    <span class="btn-checkin">ENTER →</span>
-                </div>
-            </div>
-        </a>
+    <div class="task-list">
 
-        <a href="./style.html" class="card">
-            <div class="card-img">👔</div>
-            <div class="card-info">
-                <div class="card-title">【行装美学】西装到工装的硬朗美学，避开廉价感，用穿搭武装社会身份。</div>
-                <div class="card-meta">
-                    <span class="tag">02 / STYLE</span>
-                    <span class="btn-checkin">ENTER →</span>
-                </div>
+        <div class="task-item" id="t1">
+            <div class="task-content" onclick="window.location.href='./fitness.html'">
+                <span class="task-tag">01 / IRON</span>
+                <div class="task-title">床边完成 3 组跪姿俯卧撑</div>
+                <div class="task-desc">每组仅需 8-10 个。趴下即赢，强迫窄骨架开始呼吸长肉。</div>
             </div>
-        </a>
+            <div class="checkbox-btn" onclick="toggleTask('t1')">✓</div>
+        </div>
 
-        <a href="./grooming.html" class="card">
-            <div class="card-img">🧔</div>
-            <div class="card-info">
-                <div class="card-title">【面容重塑】拒绝油腻与繁琐。专为男士设计的极简理容与冷感刀锋打理。</div>
-                <div class="card-meta">
-                    <span class="tag">03 / FACE</span>
-                    <span class="btn-checkin">ENTER →</span>
-                </div>
+        <div class="task-item" id="t2">
+            <div class="task-content">
+                <span class="task-tag">02 / FUEL</span>
+                <div class="task-title">死磕吞下 2 根香蕉 + 随餐维B锌片</div>
+                <div class="task-desc">给干瘪的身体强灌热量和消炎元素，打破一天一餐的死局。</div>
             </div>
-        </a>
+            <div class="checkbox-btn" onclick="toggleTask('t2')">✓</div>
+        </div>
 
-        <a href="./knowledge.html" class="card">
-            <div class="card-img">📚</div>
-            <div class="card-info">
-                <div class="card-title">【心智觉醒】戒断低级多巴胺，构建顶级猎手的思维深度、专注力与搞钱认知。</div>
-                <div class="card-meta">
-                    <span class="tag">04 / MIND</span>
-                    <span class="btn-checkin">ENTER →</span>
-                </div>
+        <div class="task-item" id="t3">
+            <div class="task-content" onclick="window.location.href='./style.html'">
+                <span class="task-tag">03 / ARMOR</span>
+                <div class="task-title">封印软塌卫衣，选硬挺合身夹克出街</div>
+                <div class="task-desc">利用自然卷刘海掩护颧骨，用硬质面料撑开窄肩，拒绝头重脚轻。</div>
             </div>
-        </a>
+            <div class="checkbox-btn" onclick="toggleTask('t3')">✓</div>
+        </div>
 
-        <a href="./diet.html" class="card">
-            <div class="card-img">🥩</div>
-            <div class="card-info">
-                <div class="card-title">【原始饮食】高蛋白干净饮食指南，吃出低体脂与充沛精力，维持全天高酮状态。</div>
-                <div class="card-meta">
-                    <span class="tag">05 / FUEL</span>
-                    <span class="btn-checkin">ENTER →</span>
-                </div>
+        <div class="task-item" id="t4">
+            <div class="task-content" onclick="window.location.href='./grooming.html'">
+                <span class="task-tag">04 / DETOX</span>
+                <div class="task-title">手部铁律：今天手脏绝对不碰脸</div>
+                <div class="task-desc">物理阻绝网吧键盘的细菌。饭后彻底漱口，雷打不动涂抹药膏。</div>
             </div>
-        </a>
+            <div class="checkbox-btn" onclick="toggleTask('t4')">✓</div>
+        </div>
+
+        <div class="task-item" id="t5">
+            <div class="task-content">
+                <span class="task-tag">05 / MIND</span>
+                <div class="task-title">11:50 手机离床，12点准时闭眼闭灯</div>
+                <div class="task-desc">今晚不跟多巴胺死磕，只在规定时间把手机丢开，给皮肤消炎。</div>
+            </div>
+            <div class="checkbox-btn" onclick="toggleTask('t5')">✓</div>
+        </div>
 
     </div>
+
+    <script>
+        const totalTasks = 5;
+        let completedTasks = 0;
+
+        function toggleTask(id) {
+            const item = document.getElementById(id);
+            if (item.classList.contains('done')) {
+                item.classList.remove('done');
+                completedTasks--;
+            } else {
+                item.classList.add('done');
+                completedTasks++;
+            }
+            
+            const percent = Math.round((completedTasks / totalTasks) * 100);
+            document.getElementById('mainProgress').style.width = percent + '%';
+            document.getElementById('progressText').innerHTML = percent + '% Completed';
+        }
+    </script>
 
 </body>
 </html>
